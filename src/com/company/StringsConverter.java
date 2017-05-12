@@ -20,7 +20,7 @@ public class StringsConverter {
     }
 
     public String convertDocument() throws FileNotFoundException {
-        File f = new File("~/home/bubu.");
+        File f = new File("~/home/bubu");
         FileInputStream fileInputStream = new FileInputStream(f);
         return fileInputStream.toString().toUpperCase();
     }

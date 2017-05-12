@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.myexceptions.MyScanner;
+import com.company.myexceptions.Trouble;
 import com.company.myexceptions.VerySeriousException;
 
 import java.io.File;
@@ -113,7 +115,11 @@ public class Main {
         //demonstrate how to throw exceptions and catch them in nested calls.
 
         TroubleMaker tr = new TroubleMaker();
-        System.out.println(tr.getSomeText());
+        try {
+            System.out.println(tr.getSomeText());
+        } catch (Trouble trouble) {
+            System.out.println(trouble.getMessage());
+        }
 
         printExample("Example 8");
         separator();
@@ -123,7 +129,7 @@ public class Main {
         FileWriter fw = WriterFactory.getFileWriter();
         fw.writeMyString("this is my diary");
 
-        System.out.println("\n ---- SUCCESS! this is the end of our program ----\n");
+
 
         separator();
         printExample("Example 9");
@@ -132,12 +138,16 @@ public class Main {
 
         //yet another source of possible Exceptions - let's scan some text!
 
-       /* Scanner myScanner = new Scanner(" wlazl kotek na plotek");
-        while (myScanner.hasNext()) {
-            System.out.println("scanner scanned: " + myScanner.next());
-            int a = myScanner.nextInt();
-            System.out.println(a);
-        }*/
+        MyScanner myScanner = new MyScanner();
+        int myresult = 0;
+        try {
+            myresult = myScanner.getFirstIntFromString("bla gaga bubu");
+            System.out.println(" found number is: " + myresult);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("\n ---- SUCCESS! this is the end of our program ----\n");
 
         //yes - it failed - exercise - extract this to external function and
         //handle exceptions. Function should return FIRST integer found in
