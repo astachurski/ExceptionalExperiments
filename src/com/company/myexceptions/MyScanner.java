@@ -10,7 +10,7 @@ public class MyScanner {
 
     public int getFirstIntFromString(String data) throws Exception {
         Scanner myScanner = new Scanner(data);
-        int result = 0;
+        int result;
         ArrayList<Integer> results = new ArrayList<>();
 
         while (myScanner.hasNext()) {
